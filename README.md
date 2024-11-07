@@ -48,3 +48,15 @@ Users deposit liquidity in **Hedge Vaults** (for inflation protection) or **Risk
 Using an **Oracle** script on an **Acurast TEE Processor**, the protocol retrieves inflation data from trusted sources (such as central banks) and integrates it with Soroban smart contracts through [`js-stellar-sdk`](https://github.com/stellar/js-stellar-sdk).
 
 The controller contract then assesses inflation data to determine if payout conditions are met. If inflation surpasses the threshold, funds move from the Risk Vault to the Hedge Vault for payouts; if not, funds in the Hedge Vault are transferred to the Risk Vault, providing returns to investors.
+
+### Acurast Oracle 
+
+Acurast is a decentralized and trustless compute execution layer that leverages TEEs to enable its off-chain processors (workers) to fetch, sign, and submit data on-chain in a trustless and confidential manner. These processors are highly decentralized, even utilizing the processing power of old mobile phones, which enhances accessibility and decentralization.
+
+In our implementation, we deploy a Node.js script, which includes a bundled `js-stellar-sdk`, to forward Naira to USD conversion data to our controller smart contract on Soroban. This conversion data enables the protocol to track inflation of the Naira against USD in real-time. The data update function is restricted to accept only data signed by a specific oracle account, ensuring that the data is authentic and coming from a trusted source.
+
+To further secure the process, the Node.js script is deployed on the Acurast network with multiple processors assigned, ensuring redundancy and reducing the risk of adversarial behavior. Processors are also selected randomly, which lowers the chance of manipulation by adversarial nodes.
+
+The script operates within Acurast’s Secure Hardware Runtime (ACHR), ensuring that it runs in a confidential environment where the processor itself cannot view the script’s content, enhancing privacy and security. For more details on Acurast’s trust-minimized execution layer, further information can be found here.
+
+In summary, using Acurast allows us to securely forward Naira to USD conversion data from external APIs to Soroban, enabling inflation tracking without introducing significant trust overhead, making it an efficient and secure oracle solution.
