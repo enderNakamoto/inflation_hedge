@@ -1,5 +1,4 @@
-
-import { Keypair } from "@stellar/stellar-sdk";
+import { Contract, Account, Keypair, Server, networks, TransactionBuilder } from '@stellar/stellar-sdk';
 
 const API_ENDPOINT = 'https://www.xe.com/api/protected/statistics/?from=USD&to=NGN';
 
