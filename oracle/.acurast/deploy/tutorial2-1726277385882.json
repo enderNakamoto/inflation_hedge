@@ -1,0 +1,55 @@
+{
+  "deployedAt": "2024-09-14T01:29:45.882Z",
+  "assignments": [],
+  "status": "init",
+  "config": {
+    "projectName": "tutorial2",
+    "fileUrl": "dist/index.bundle.js",
+    "network": "canary",
+    "onlyAttestedDevices": true,
+    "assignmentStrategy": {
+      "type": "Single"
+    },
+    "execution": {
+      "type": "onetime",
+      "maxExecutionTimeInMs": 60000
+    },
+    "maxAllowedStartDelayInMs": 10000,
+    "usageLimit": {
+      "maxMemory": 0,
+      "maxNetworkRequests": 0,
+      "maxStorage": 0
+    },
+    "numberOfReplicas": 1,
+    "requiredModules": [],
+    "minProcessorReputation": 0,
+    "maxCostPerExecution": 100000000000,
+    "includeEnvironmentVariables": [],
+    "processorWhitelist": []
+  },
+  "registration": {
+    "script": "ipfs://QmZiUVLDK4VYmnk4W99UgiZwtmb54KfUcS5PoJv14J8YDb",
+    "allowOnlyVerifiedSources": true,
+    "schedule": {
+      "duration": 60000,
+      "startTime": 1726277689501,
+      "endTime": 1726277749502,
+      "interval": 60001,
+      "maxStartDelay": 10000
+    },
+    "memory": 0,
+    "networkRequests": 0,
+    "storage": 0,
+    "requiredModules": [],
+    "extra": {
+      "requirements": {
+        "assignmentStrategy": {
+          "variant": "Single"
+        },
+        "slots": 1,
+        "reward": 100000000000,
+        "minReputation": 0
+      }
+    }
+  }
+}
